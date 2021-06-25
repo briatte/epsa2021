@@ -4,13 +4,19 @@ library(tidygraph)
 
 # [DRAFT] quick and dirty overview of main component
 
-str_split(d$affiliations, ",\\s\\d\\.\\s") %>%
-  map(str_remove, "1\\.\\s") %>%
+d <- readr::read_tsv("data/abstracts.tsv")
+
+e <- str_split(d$affiliations, "(,\\s)?\\d\\.\\s") %>%
+  map(str_subset, "\\w") %>%
+  # weight = 1 / number of organizations
   map_dfr(~ crossing(i = .x, j = .x, w = 1 / (length(.x) - 1))) %>%
-  filter(i != j) %>%
-  group_by(i, j) %>%
-  summarise(w = sum(w)) %>%
-  tidygraph::as_tbl_graph() %>%
+  # de-duplicate, remove self-ties
+  filter(i < j)
+
+# weights range 0.25-1
+table(e$w)
+
+tidygraph::as_tbl_graph(e) %>%
   tidygraph::activate(nodes) %>%
   mutate(
     wdegree = tidygraph::centrality_degree(weights = w),
