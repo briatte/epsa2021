@@ -25,7 +25,7 @@ tidygraph::as_tbl_graph(e) %>%
       str_replace("Univ.*\\s(\\sof)?", "U. ")
   ) %>%
   filter(group == 1) %>%
-  ggraph::ggraph() +
+  ggraph::ggraph(layout = "stress") +
   ggraph::geom_edge_link0() +
   ggraph::geom_node_point(aes(size = wdegree)) +
   ggraph::geom_node_label(aes(label = label)) +
