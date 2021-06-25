@@ -1,12 +1,14 @@
 library(tidyverse)
 library(rvest)
 
-fs::dir_create("html")
+fs::dir_create("html/conference-days")
+fs::dir_create("html/sessions")
+fs::dir_create("html/abstracts")
 
 # no need to collect day 1 (pre-session meetings only)
 for (i in str_c("https://coms.events/epsa2021/en/day_", 2:3, ".html")) {
 
-  f <- fs::path("html", fs::path_file(i))
+  f <- fs::path("html", "conference-days", fs::path_file(i))
   cat(f, ": ")
 
   if (!fs::file_exists(f)) {
@@ -22,7 +24,7 @@ for (i in str_c("https://coms.events/epsa2021/en/day_", 2:3, ".html")) {
 
   for (j in s) {
 
-    f <- fs::path("html", fs::path_file(j))
+    f <- fs::path("html", "sessions", fs::path_file(j))
     cat(f, ": ")
 
     if (!fs::file_exists(f)) {
@@ -38,7 +40,7 @@ for (i in str_c("https://coms.events/epsa2021/en/day_", 2:3, ".html")) {
 
     for (k in a) {
 
-      f <- fs::path("html", fs::path_file(k))
+      f <- fs::path("html", "abstracts", fs::path_file(k))
       if (!fs::file_exists(f)) {
         # `try` because of a few malformed URIs (as of 2021-06-22)
         # e.g. 'https://coms.events/epsa2021/data/abstracts/en/<abstract_125>'
@@ -56,8 +58,8 @@ for (i in str_c("https://coms.events/epsa2021/en/day_", 2:3, ".html")) {
 }
 
 cat(
-  length(fs::dir_ls("html", regexp = "session")), "sessions,",
-  length(fs::dir_ls("html", regexp = "abstract")), "abstracts.\n"
+  length(fs::dir_ls("html/sessions", glob = "*.html")), "sessions,",
+  length(fs::dir_ls("html/abstracts", glob = "*.html")), "abstracts.\n"
 )
 
 # kthxbye
