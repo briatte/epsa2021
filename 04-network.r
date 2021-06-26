@@ -21,8 +21,17 @@ tidygraph::as_tbl_graph(e) %>%
   mutate(
     wdegree = tidygraph::centrality_degree(weights = w),
     group = tidygraph::group_components(),
-    label = if_else(wdegree > 5, name, NA_character_) %>%
-      str_replace("Univ.*\\s(\\sof)?", "U. ")
+    label = str_remove_all(name, "\\sof"),
+    label = if_else(
+      str_count(label, "\\s") > 1,
+      str_split(label, "\\s") %>%
+        map(str_sub, 1, 1) %>%
+        map_chr(str_c, collapse = ""),
+      label
+    ),
+    label = if_else(wdegree > 3, label, NA_character_) %>%
+      str_remove("University") %>%
+      str_squish()
   ) %>%
   filter(group == 1) %>%
   ggraph::ggraph(layout = "stress") +
