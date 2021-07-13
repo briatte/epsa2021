@@ -4,7 +4,7 @@ library(rvest)
 fs::dir_create("data")
 
 d <- tibble::tibble()
-for (i in fs::dir_ls("html", regexp = "abstract")) {
+for (i in fs::dir_ls("html/abstracts")) {
 
   h <- read_html(i)
 
@@ -32,9 +32,9 @@ for (i in fs::dir_ls("html", regexp = "abstract")) {
 d <- d %>%
   mutate(
     abstract = fs::path_file(abstract),
-    presenters = str_remove_all(presenters, "(Prof|Dr)\\.") %>%
+    presenters = str_remove_all(presenters, "(Dr|Prof)\\.") %>%
       str_squish(),
-    authors = str_remove_all(authors, "(Prof|Dr)\\.") %>%
+    authors = str_remove_all(authors, "(Dr|Prof)\\.") %>%
       str_squish()
   )
 
@@ -66,6 +66,8 @@ select(d, authors, affiliations) %>%
       str_split(",\\s"),
     affiliations = str_split(affiliations, ",\\s\\d\\.\\s")
   )
+
+x$ids[ map(x$ids, length) == 0 ] <- list(1)
 
 readr::write_tsv(d, "data/abstracts.tsv")
 
