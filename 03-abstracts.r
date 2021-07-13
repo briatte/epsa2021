@@ -32,7 +32,10 @@ for (i in fs::dir_ls("html", regexp = "abstract")) {
 d <- d %>%
   mutate(
     abstract = fs::path_file(abstract),
-    authors = str_squish(authors)
+    presenters = str_remove_all(presenters, "(Prof|Dr)\\.") %>%
+      str_squish(),
+    authors = str_remove_all(authors, "(Prof|Dr)\\.") %>%
+      str_squish()
   )
 
 # View(d)
