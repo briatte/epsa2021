@@ -4,7 +4,7 @@ library(rvest)
 fs::dir_create("data")
 
 d <- tibble::tibble()
-for (i in fs::dir_ls("html", regexp = "session")) {
+for (i in fs::dir_ls("html/sessions", regexp = "session")) {
 
   h <- read_html(i)
 
