@@ -246,22 +246,35 @@ bind_rows(
   arrange(full_name, affiliation) %>%
   readr::write_tsv("data/affiliation-problems.tsv")
 
-# (manual) sanity check: no duplicates
-read_tsv("data/affiliation-fixes.tsv", col_types = "cc") %>%
-  filter(duplicated(full_name))
+# create `affiliation-fixes.tsv` in Google Sheets and export to `data/` before
+# moving on to the next steps
 
-# use completed version to get a single affiliation per author
-d <- read_tsv("data/affiliation-fixes.tsv", col_types = "cc") %>%
-  left_join(d, ., by = c("author" = "full_name")) %>%
-  mutate(affiliation = if_else(is.na(affiliation.y), affiliation.x, affiliation.y)) %>%
-  select(-affiliation.x, -affiliation.y) %>%
+# sanity checks
+y <- readr::read_tsv("data/affiliation-problems.tsv", col_types = "cc")
+z <- readr::read_tsv("data/affiliation-fixes.tsv", col_types = "ccc")
+# - fixes cover all initially problematic cases
+stopifnot(y$full_name %in% z$full_name)
+# - fixes contain nothing but initially problematic cases
+#   (removed: not true because we also fix a few names)
+# stopifnot(z$full_name %in% y$full_name)
+# - no weird or missing values in fixes
+stopifnot(!is.na(y$full_name) & y$full_name != "")
+# - no duplicate names in fixes
+stopifnot(!duplicated(z$full_name))
+
+# `z` contains affiliation AND a few full name fixes
+# use it to get a single affiliation per author
+d <- left_join(d, z, by = c("author" = "full_name")) %>%
+  mutate(
+    author = if_else(is.na(full_name_fix), author, full_name_fix),
+    affiliation = if_else(is.na(affiliation.y), affiliation.x, affiliation.y)
+  ) %>%
+  select(-full_name_fix, -affiliation.x, -affiliation.y) %>%
   relocate(affiliation, .after = "author")
 
 # sanity checks
 stopifnot(!is.na(d$author))
 stopifnot(!is.na(d$affiliation)) # applies to authors/presenters only here
-
-# TODO: further affiliation fixes (which will modify the participant UIDs)
 
 # reformat ----------------------------------------------------------------
 
@@ -294,20 +307,28 @@ d <- bind_rows(
   select(d, -chairs, -discussants, full_name = author) %>%
     add_column(role = "p")
 ) %>%
-  arrange(session_id, role) %>%
+  arrange(session_id, role, full_name) %>%
   # remove "Shared by Panellists" (chair, discussant) rows
-  filter(!full_name %in% "Shared by Panellists")
+  filter(full_name != "Shared by Panellists")
 
 # sanity checks
 stopifnot(!is.na(d$full_name))
+stopifnot(d$full_name != "Shared by Panellists")
 
 # fix affiliations for chairs and discussants -----------------------------
 
-# TODO: fix affiliations for chairs/discussants
+# apply name and affiliation fixes again (some were for chairs/discussants)
+d <- left_join(d, z, by = "full_name") %>%
+  mutate(
+    full_name = if_else(is.na(full_name_fix), full_name, full_name_fix),
+    affiliation = if_else(is.na(affiliation.y), affiliation.x, affiliation.y)
+  ) %>%
+  select(-full_name_fix, -affiliation.x, -affiliation.y) %>%
+  relocate(affiliation, .after = "full_name")
 
 # sanity checks
-# stopifnot(!is.na(d$full_name))
-# stopifnot(!is.na(d$affiliation))
+stopifnot(!is.na(d$full_name))
+stopifnot(!is.na(d$affiliation))
 
 # create unique participant identifiers -----------------------------------
 
@@ -330,9 +351,9 @@ stopifnot(!duplicated(p$text))
 stopifnot(!duplicated(p$hash))
 
 # add hashes to master data
-d <- select(p, full_name, pid = hash) %>%
-  left_join(d, ., by = "full_name") %>%
-  relocate(pid, .before = full_name)
+d <- select(p, full_name, affiliation, pid = hash) %>%
+  left_join(d, ., by = c("full_name", "affiliation"), relationship = "many-to-one") %>%
+  relocate(pid, .before = "full_name")
 
 # sanity check: no missing pid
 stopifnot(!is.na(d$pid))

@@ -1,84 +1,99 @@
-full_name	affiliation
-Aleksandra Khokhlova	Faculty of Social and Behavioural Sciences, Institute of Political Science, Leiden University
-André Walter	University of St. Gallen
-Anna Adendorf	University of Mannheim, Mannheim Centre for European Social Research
-António Valentim	Humboldt University of Berlin
-Armin von Schiller	German Development Institute / Deutsches Institut für Entwicklungspolitik (DIE)
-Barbara Piotrowska	NA
-Bernd Schlipphak	University of Münster, Department of Political Science
-Bernhard Reinsberg	University of Glasgow, School of Social & Political Sciences
-Brandon Beomseob Park	NA
-Bruno Castanho Silva	Cologne Center for Comparative Politics, University of Cologne
-Christopher Wratil	University College, London
-Constantin Schäfer	University of Münster, Department of Political Science
-Daniel Bischof	University of Zurich | Aarhus University
-Danielle Pullan	Cologne Center for Comparative Politics, University of Cologne && International Max Planck Research School on the Social and Political Constitution of the Economy, University of Cologne
-David M. Grundmanns	Mannheim Centre for European Social Research, University of Mannheim
-David Rueda	NA
-Diane Bolet	King's College London && London School of Economics and Political Science
-Elias Dinas	European University Institute
-Eva Anduiza	Universitat Autònoma de Barcelona
-Fabian Jonas Habersack	NA
-Fabio Ellger	Humboldt University of Berlin
-Felix Bethke	NA
-Florian Foos	Department of Government, London School of Economics and Political Science
-Florian Weiler	Center for Social Sciences, Central European University, Budapest
-Gema García-Albacete	University Carlos III Madrid
-Gema M García-Albacte	NA
-Giuseppe Spatafora	Department of Politics and International Relations, University of Oxford
-Heike Klüver	Humboldt University of Berlin
-Ilona Erzsebet Lahdelma	NA
-Jaakko Meriläinen	Instituto Tecnológico Autónomo de México
-Jaakko Pekka Meriläinen	NA
-Jan Berz	Department of Political Science, Trinity College Dublin
-Jane Green	Nuffield College, University of Oxford
-Janne Tukiainen	VATT Institute for Economic Research && University of Turku
-Jeffrey Wright	NA
-Jens Eger	NA
-Jens Wäckerle	Cologne Center for Comparative Politics, University of Cologne
-Julie Hassing Nielsen	Department of Political Science, Lund University
-Ken Benoit	NA
-Lena Maria Schaffer	NA
-Lion Behrens	University of Mannheim, Germany
-Lorenzo Crippa	Department of Government, University of Essex
-Lukas Rudolph	ETH Zürich, Switzerland && LMU München, Germany
-Lukas Stötzer	NA
-Marius Saeltzer	University Mannheim
-Markus Stephan Tepe	NA
-Martijn Schoonvelde	University College Dublin
-Martin Elff	Zeppelin University, Friedrichshafen
-Max Schaub	WZB Social Science Center Berlin
-Meri Dankenbring	Goethe University Frankfurt am Main
-Musashi Harukawa	NA
-Nikoleta Yordanova	Faculty of Social and Behavioural Sciences, Institute of Political Science, Leiden University
-Oliver Treib	University of Münster, Department of Political Science
-Patrícia Calca	CIES - ISCTE (Instituto Superior de Ciências do Trabalho e da Empresa) && University of Konstanz
-Patrick Emmenegger	University of St. Gallen
-Patrick Michael Kuhn	NA
-Paul Cornelius Bauer	NA
-Pedro Riera	University Carlos III of Madrid
-Raymond Duch	NA
-Renu Singh	Georgetown University Law Center, The Hong Kong University of Science and Technology (HKUST)
-Reut Itzkovitch-Malka	The Hebrew University of Jerusalem && The Open University of Israel
-Roberto Pannico	Instituto de Ciências Sociais da Universidade de Lisboa
-Sam van Noort	University of Cambridge && Harvard University
-Sebastian Popa	NA
-Shared by Panellists	NA
-Simon Friedrich Ellerbrock	NA
-Simon Otjes	Leiden University && Groningen University
-Sinéad Caitríona Harrington	NA
-Stefanie Reher	University of Copenhagen, Leiden University, University of Bergen, University of Strathclyde
-Stefanie Walter	Universität Bremen && University of Zurich
-Theres Matthieß	MZES, University Mannheim
-Thomas Gschwend	University of Mannheim && Mannheim Centre for European Social Research && Collaborative Research Center 884
-Thomas König	University of Mannheim
-Thomas M Meyer	NA
-Thomas Meyer	Humboldt University Berlin
-Tina Margarete Freyburg	NA
-Tolga Sinmazdemir	SOAS, University of London
-Vera Eva Troeger	NA
-Vicente Valentim	European University Institute
-Viktoriia Semenova	University of Mannheim, Germany
-William L Allen	NA
-Xiao Lu	University of Mannheim
-Yannick Stiller	University of Salzburg
+full_name	full_name_fix	affiliation
+Aleksandra Khokhlova		Faculty of Social and Behavioural Sciences, Institute of Political Science, Leiden University
+André Walter		University of St. Gallen
+Anna Adendorf		University of Mannheim, Mannheim Centre for European Social Research
+António Valentim		Humboldt University of Berlin
+Armin von Schiller		German Development Institute / Deutsches Institut für Entwicklungspolitik (DIE)
+Barbara Piotrowska	Barbara Maria Piotrowska	University of Oxford
+Barbara Maria Piotrowska		University of Oxford
+Bernd Schlipphak		University of Münster, Department of Political Science
+Bernhard Reinsberg		University of Glasgow, School of Social & Political Sciences
+Brandon Beomseob Park		University of Reading
+Beomseob Park	Brandon Beomseob Park	University of Reading
+Bruno Castanho Silva		Cologne Center for Comparative Politics, University of Cologne
+Christopher Wratil		University College, London
+Constantin Schäfer		University of Münster, Department of Political Science
+Daniel Bischof		University of Zurich && Aarhus University
+Danielle Pullan		Cologne Center for Comparative Politics, University of Cologne && International Max Planck Research School on the Social and Political Constitution of the Economy, University of Cologne
+David M. Grundmanns		Mannheim Centre for European Social Research, University of Mannheim
+David Rueda		Nuffield College, Oxford University
+Diane Bolet		King's College London && London School of Economics and Political Science
+Elias Dinas		European University Institute
+Eva Anduiza		Universitat Autònoma de Barcelona
+Fabian Jonas Habersack		University of Salzburg
+Fabian Habersack	Fabian Jonas Habersack	University of Salzburg
+Fabio Ellger		Humboldt University of Berlin
+Felix Bethke		Peace Research Institute Frankfurt
+Florian Foos		Department of Government, London School of Economics and Political Science
+Florian Weiler		Center for Social Sciences, Central European University, Budapest
+Gema García-Albacete	Gema M García-Albacte	University Carlos III Madrid
+Gema M García-Albacte		University Carlos III Madrid
+Giuseppe Spatafora		Department of Politics and International Relations, University of Oxford
+Heike Klüver		Humboldt University of Berlin
+Ilona Erzsebet Lahdelma		Juan March Institute, Carlos III
+Jaakko Meriläinen	Jaakko Pekka Meriläinen	Instituto Tecnológico Autónomo de México
+Jaakko Pekka Meriläinen		Instituto Tecnológico Autónomo de México
+Jan Berz		Department of Political Science, Trinity College Dublin
+Jane Green		Nuffield College, University of Oxford
+Janne Tukiainen		VATT Institute for Economic Research && University of Turku
+Jeffrey Wright		Nuffield College, Oxford University
+Jens Eger		University of Göttingen && German Institute for Development Evaluation
+Jens Wäckerle		Cologne Center for Comparative Politics, University of Cologne
+Julie Hassing Nielsen		Department of Political Science, Lund University
+Ken Benoit	Kenneth Benoit	London School of Economics and Political Science
+Kenneth Benoit		London School of Economics and Political Science
+Lena Schaffer	Lena Maria Schaffer	University of Luzern
+Lena Maria Schaffer		University of Luzern
+Lion Behrens		University of Mannheim, Germany
+Lorenzo Crippa		Department of Government, University of Essex
+Lukas Rudolph		ETH Zürich, Switzerland && LMU München, Germany
+Lukas Stötzer		Humboldt University of Berlin
+Lukas Stoetzer	Lukas Stötzer	Humboldt University of Berlin
+Marius Saeltzer	Marius Sältzer	University of Mannheim
+Marius Sältzer		University of Mannheim
+Markus Stephan Tepe		University of Oldenburg
+Markus Tepe	Markus Stephan Tepe	University of Oldenburg
+Martijn Schoonvelde		University College Dublin
+Martin Elff		Zeppelin University, Friedrichshafen
+Max Schaub		WZB Social Science Center Berlin
+Meri Dankenbring		Goethe University Frankfurt am Main
+Musashi Harukawa		University of Oxford
+Nikoleta Yordanova		Faculty of Social and Behavioural Sciences, Institute of Political Science, Leiden University
+Oliver Treib		University of Münster, Department of Political Science
+Patrícia Calca		CIES - ISCTE (Instituto Superior de Ciências do Trabalho e da Empresa) && University of Konstanz
+Patrick Emmenegger		University of St. Gallen
+Patrick Michael Kuhn		Durham University
+Patrick M Kuhn	Patrick Michael Kuhn	Durham University
+Patrick Kuhn	Patrick Michael Kuhn	Durham University
+Paul Cornelius Bauer		Mannheim Centre for European Social Research
+Paul Bauer	Paul Cornelius Bauer	Mannheim Centre for European Social Research
+Pedro Riera		University Carlos III of Madrid
+Raymond Duch		Nuffield College, University of Oxford, Oxford
+Renu Singh		Georgetown University Law Center, The Hong Kong University of Science and Technology (HKUST)
+Reut Itzkovitch-Malka		The Hebrew University of Jerusalem && The Open University of Israel
+Roberto Pannico		Instituto de Ciências Sociais da Universidade de Lisboa
+Sam van Noort		University of Cambridge && Harvard University
+Sebastian Popa		Newcastle University, United Kingdom
+Shared by Panellists		NA
+Simon Friedrich Ellerbrock		Mannheim Centre for European Social Research (MZES), University of Mannheim, Germany
+Simon Ellerbrock	Simon Friedrich Ellerbrock	Mannheim Centre for European Social Research (MZES), University of Mannheim, Germany
+Simon Otjes		Leiden University && Groningen University
+Sinéad Caitríona Harrington		Trinity College Dublin
+Sinéad Harrington	Sinéad Caitríona Harrington	Trinity College Dublin
+Stefanie Reher		University of Copenhagen && Leiden University && University of Bergen && University of Strathclyde
+Stefanie Walter		Universität Bremen && University of Zurich
+Theres Matthieß		MZES, University Mannheim
+Thomas Gschwend		University of Mannheim && Mannheim Centre for European Social Research && Collaborative Research Center 884
+Thomas König		University of Mannheim
+Thomas M Meyer		Humboldt University Berlin
+Thomas Meyer	Thomas M Meyer	Humboldt University Berlin
+Tina Margarete Freyburg		University of St.Gallen, School of Economics and Political Science, Switzerland
+Tina Freyburg	Tina Margarete Freyburg	University of St.Gallen, School of Economics and Political Science, Switzerland
+Tolga Sinmazdemir		SOAS, University of London
+Vera Eva Troeger		University of Hamburg, Germany
+Vicente Valentim		European University Institute
+Viktoriia Semenova		University of Mannheim, Germany
+William L Allen		University of Oxford, Department of Politics and International Relations
+William Allen	William L Allen	University of Oxford, Department of Politics and International Relations
+Xiao Lu		University of Mannheim
+Yannick Stiller		University of Salzburg
