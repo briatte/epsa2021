@@ -4,6 +4,41 @@ library(tidygraph)
 
 # [DRAFT] quick and dirty overview of main component
 
+# -- parse abstracts -----------------------------------------------------------
+
+library(rvest)
+f <- fs::dir_ls("html/abstracts", glob = "*.html")
+
+cat("Parsing", length(f), "abstracts...")
+
+d <- map(f, read_html) %>%
+  map_dfr(
+    ~ tibble::tibble(
+      # # detailed metadata
+      # html_nodes(.x, "meta") %>%
+      #   map_chr(html_attr, "content")
+      panel = html_nodes(.x, xpath = "//a[contains(@href, 'session')]") %>%
+        html_attr("href"),
+      authors = html_nodes(.x, "meta[name='authors']") %>%
+        html_attr("content"),
+      affiliations = html_nodes(.x, "meta[name='affiliations']") %>%
+        html_attr("content")
+    ),
+    .id = "abstract"
+  ) %>%
+  mutate(
+    # authors have extra spaces, but are clean otherwise
+    authors = str_squish(authors),
+    # numeric identifiers but stored as character; `abstract` is 4-padded
+    panel = str_remove_all(basename(panel), "\\D"),
+    abstract = str_remove_all(basename(abstract), "\\D")
+  ) %>%
+  arrange(abstract)
+
+cat("\n")
+
+readr::write_tsv(d, "data/abstracts.tsv")
+
 d <- readr::read_tsv("data/abstracts.tsv")
 
 e <- str_split(d$affiliations, "(,\\s)?\\d\\.\\s") %>%
